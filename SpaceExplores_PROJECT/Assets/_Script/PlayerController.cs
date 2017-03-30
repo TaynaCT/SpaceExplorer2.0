@@ -28,10 +28,15 @@ public class PlayerController : MonoBehaviour {
             animator.SetBool("isWalking", true);
 
             //correr
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButton("Running"))
             {
                 velocity = velocity * RunningSpeed;
                 animator.SetBool("isRunning", true);
+
+                if (Input.GetButtonDown("Jump"))
+                {
+                    animator.SetTrigger("jump");
+                }
             }
             else
             {
@@ -45,30 +50,24 @@ public class PlayerController : MonoBehaviour {
         else
         {
             animator.SetBool("isWalking", false);
+
+            //saltar
+            if (Input.GetButtonDown("Jump"))
+            {
+                animator.SetTrigger("jump");
+            }
         }
 
         if (Input.GetAxis("Horizontal") > 0)//virar para a direita 
         {
             transform.transform.Rotate(new Vector3(0, 2f, 0));
-            animator.SetBool("isWalking", true);
 
         }
         else if (Input.GetAxis("Horizontal") < 0)//virar para a esquerda
         {
             transform.transform.Rotate(new Vector3(0, -2f, 0));
-            animator.SetBool("isWalking", true);
         }
 
-        //pular
-        if (Input.GetAxis("Jump") > 0)
-        {
-            animator.SetBool("jump", true);
-        }
-        else
-        {
-            animator.SetBool("jump", false);
-        }
-               
     }
 
     void OnCollisionEnter(Collision c)
