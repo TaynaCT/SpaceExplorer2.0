@@ -25,37 +25,50 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetAxis("Vertical") > 0)//andar para frente 
         {
             velocity = transform.forward * Speed;
-            animator.SetBool("isWalking", true);
 
-            //correr
-            if (Input.GetButton("Running"))
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
             {
-                velocity = velocity * RunningSpeed;
-                animator.SetBool("isRunning", true);
-
-                if (Input.GetButtonDown("Jump"))
+                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.4f 
+                    && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.6f)
                 {
-                    animator.SetTrigger("jump");
+                    velocity.y = rb.velocity.y;
+                    rb.velocity = velocity;
                 }
             }
             else
             {
-                animator.SetBool("isRunning", false);
+                animator.SetBool("isWalking", true);
+
+                //correr
+                if (Input.GetButton("Running"))
+                {
+                    velocity = velocity * RunningSpeed;
+                    animator.SetBool("isRunning", true);
+                }
+                else
+                {
+                    animator.SetBool("isRunning", false);
+                }
+
+                velocity.y = rb.velocity.y;
+                rb.velocity = velocity;
             }
-
-            velocity.y = rb.velocity.y;
-            rb.velocity = velocity;
-
+            velocity = transform.forward * Speed;
+            animator.SetBool("isWalking", true);
         }
         else
         {
             animator.SetBool("isWalking", false);
+        }
 
-            //saltar
-            if (Input.GetButtonDown("Jump"))
-            {
-                animator.SetTrigger("jump");
-            }
+        //saltar
+        if (Input.GetButtonDown("Jump"))
+        {
+            animator.SetBool("jump", true);
+        }
+        else
+        {
+            animator.SetBool("jump", false);
         }
 
         if (Input.GetAxis("Horizontal") > 0)//virar para a direita 
