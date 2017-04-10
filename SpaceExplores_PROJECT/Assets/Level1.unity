@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 96635206}
   - component: {fileID: 96635205}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: Ambient Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,6 +228,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: -1.326
       objectReference: {fileID: 0}
+    - target: {fileID: 100068, guid: 9679ef929be9d8a45a1fc8e57739460e, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9679ef929be9d8a45a1fc8e57739460e, type: 3}
   m_IsPrefabParent: 0
@@ -287,6 +291,7 @@ GameObject:
   - component: {fileID: 1354397116}
   - component: {fileID: 1354397115}
   - component: {fileID: 1354397114}
+  - component: {fileID: 1354397119}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -364,6 +369,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1354397119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1354397113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d691aabf7c9287459f9acce24c45310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1937291705
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +393,7 @@ GameObject:
   - component: {fileID: 1937291706}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
