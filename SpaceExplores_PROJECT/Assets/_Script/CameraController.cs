@@ -8,19 +8,25 @@ public class CameraController : MonoBehaviour {
 
     Vector3 cameraLookAt;
     Transform tileTransform;
+    Transform firstSoloTransform;
+    Transform lastSoloTransform;
     Vector3 position;
     float angle;
+
 
 	// Use this for initialization
 	void Start () {
         Cursor.lockState = CursorLockMode.Confined;
         angle = 0f;
-        tileTransform = GameObject.FindGameObjectWithTag("tile").transform;
-        cameraLookAt = tileTransform.position + Vector3.up * tileTransform.localScale.y / 2;
-        position = new Vector3(tileTransform.position.x +
-            tileTransform.localScale.x / 2, 26, 
-            tileTransform.position.z + tileTransform.localScale.z / 2);
+        tileTransform = GameObject.Find("MainTile").transform;
+        firstSoloTransform = tileTransform.Find("DesertSideTile");
+        lastSoloTransform = tileTransform.Find("DesertSideTile (241)");
+        cameraLookAt = (firstSoloTransform.position + lastSoloTransform.position) / 2;
+        position = new Vector3(firstSoloTransform.position.x + 
+            firstSoloTransform.localScale.x / 2, 1.5f, 
+            firstSoloTransform.position.z + firstSoloTransform.localScale.z / 2);
         transform.position = position;
+        transform.LookAt(cameraLookAt);
 	}
 	
 	// Update is called once per frame
