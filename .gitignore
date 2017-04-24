@@ -1,4 +1,4 @@
-/[Ll]ibrary/
+[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
@@ -79,5 +79,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
-SpaceExplores_PROJECT/Library/assetDatabase3
