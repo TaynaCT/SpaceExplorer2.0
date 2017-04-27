@@ -12,10 +12,8 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-
     }
 
     // Update is called once per frame

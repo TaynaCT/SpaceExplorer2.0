@@ -38,4 +38,10 @@ public class CameraController : MonoBehaviour {
             transform.RotateAround(cameraLookAt, Vector3.up, angle);
         }
     }
+
+    public float GetTileSize()
+    {
+        float tileSize = lastSoloTransform.position.x - firstSoloTransform.position.x;
+        return tileSize;
+    }
 }
