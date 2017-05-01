@@ -14,7 +14,7 @@ public class FloatingText : MonoBehaviour {
     void Start()
     {
         textAnimator.GetComponent<Animator>();
-        screenText = textAnimator.GetComponent<Text>();
+        
     }
 
     void Update()
@@ -33,7 +33,12 @@ public class FloatingText : MonoBehaviour {
 
             //ao fim da animação, o objeto referente ao texto é destruido
             AnimatorClipInfo[] clipInfo = textAnimator.GetCurrentAnimatorClipInfo(0);
-            Destroy(gameObject, clipInfo[0].clip.length);            
+            Destroy(gameObject, clipInfo[0].clip.length);
+            screenText = textAnimator.GetComponent<Text>();
+
+            if (screenText == null)
+                Debug.Log("screenText null !!!!!!");
+           
         }
                 
     }
@@ -44,7 +49,6 @@ public class FloatingText : MonoBehaviour {
     /// <param name="text"></param>
     public void SetText(string text)
     {
-        screenText.text = text;
-    }
-	 
+        screenText.text = text;        
+    }	 
 }

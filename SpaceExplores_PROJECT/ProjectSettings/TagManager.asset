@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DesertSolo
   - MainTile
+  - Canvas
   layers:
   - Default
   - TransparentFX

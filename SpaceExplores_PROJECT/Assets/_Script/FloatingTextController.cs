@@ -1,34 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FloatingTextController : MonoBehaviour {
 
-    private static FloatingText screenText;
-    private static GameObject canvas;
+    public FloatingText screenText = null;
 
     string[] textArray = { "Ola", "como vai vc?", "vlw" };
 
-    public static void Initialize()
-    {
-        canvas = GameObject.Find("Canvas");
-        screenText = Resources.Load<FloatingText>("_Prefabs/TextParent.prefab");       
-    }
-
     public void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             CreatingText(textArray[0]);
         }
     }
 
-    public static void CreatingText(string text)
-    {
-        FloatingText instane = Instantiate(screenText);
-        instane.transform.SetParent(canvas.transform, false);
+    public void CreatingText(string text)
+    {        
+        FloatingText instance = Instantiate(screenText);        
+        instance.transform.SetParent(this.transform, false);
+        instance.SetText(text);
 
-        instane.SetText(text);
     }
 
 }
