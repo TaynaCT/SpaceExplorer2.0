@@ -5,15 +5,13 @@ using UnityEngine.UI;
 
 public class FloatingTextController : MonoBehaviour {
 
-    public FloatingText screenText = null;
-
-    string[] textArray = { "Ola", "como vai vc?", "vlw" };
+    public FloatingText screenText = null;       
 
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            CreatingText(textArray[0]);
+            CreatingText("Hello");
         }
     }
 
@@ -21,8 +19,8 @@ public class FloatingTextController : MonoBehaviour {
     {        
         FloatingText instance = Instantiate(screenText);        
         instance.transform.SetParent(this.transform, false);
-        instance.SetText(text);
-
-    }
+        //por aqui não é possivel introduzir um novo texto
+        instance.GetComponent<FloatingText>().SetText(text);
+     }
 
 }

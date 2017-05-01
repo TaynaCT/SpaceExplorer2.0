@@ -9,12 +9,12 @@ public class FloatingText : MonoBehaviour {
 
     public Animator textAnimator;
     float timer = 20; //timer para aparição do texto após iniciado a aplicação
-    private Text screenText; //texto que deverá aparecer na tela
+    Text screenText; //texto que deverá aparecer na tela
    
     void Start()
-    {
+    {        
         textAnimator.GetComponent<Animator>();
-        
+        screenText = textAnimator.GetComponent<Text>();
     }
 
     void Update()
@@ -33,22 +33,17 @@ public class FloatingText : MonoBehaviour {
 
             //ao fim da animação, o objeto referente ao texto é destruido
             AnimatorClipInfo[] clipInfo = textAnimator.GetCurrentAnimatorClipInfo(0);
-            Destroy(gameObject, clipInfo[0].clip.length);
-            screenText = textAnimator.GetComponent<Text>();
-
-            if (screenText == null)
-                Debug.Log("screenText null !!!!!!");
-           
+            Destroy(gameObject, clipInfo[0].clip.length);           
         }
-                
+
     }
-    
+
     /// <summary>
-    /// função que recebe que passa o texto a ser mostrado na tela
+    /// função que recebe e passa o texto a ser mostrado na tela
     /// </summary>
     /// <param name="text"></param>
     public void SetText(string text)
     {
-        screenText.text = text;        
-    }	 
+        screenText.text = text;
+    }
 }

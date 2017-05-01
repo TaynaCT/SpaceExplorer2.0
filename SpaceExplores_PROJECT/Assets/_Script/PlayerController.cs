@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetAxis("Vertical") > 0)//andar para frente 
         {
             velocity = transform.forward * Speed;
-
+            
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
             {
                 if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.4f 
