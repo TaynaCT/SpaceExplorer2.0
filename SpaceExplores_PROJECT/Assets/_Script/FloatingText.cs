@@ -44,6 +44,7 @@ public class FloatingText : MonoBehaviour {
     /// <param name="text"></param>
     public void SetText(string text)
     {
+        screenText = textAnimator.GetComponent<Text>();
         screenText.text = text;
     }
 }

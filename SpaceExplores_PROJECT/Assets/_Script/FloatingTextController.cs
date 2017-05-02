@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+    
 
 public class FloatingTextController : MonoBehaviour {
 
-    public FloatingText screenText = null;       
+    public GameObject screenText;      
 
     public void Update()
     {
@@ -16,11 +17,13 @@ public class FloatingTextController : MonoBehaviour {
     }
 
     public void CreatingText(string text)
-    {        
-        FloatingText instance = Instantiate(screenText);        
+    {      
+        GameObject instance = Instantiate(screenText);
+            
         instance.transform.SetParent(this.transform, false);
-        //por aqui não é possivel introduzir um novo texto
         instance.GetComponent<FloatingText>().SetText(text);
-     }
+        //por aqui não é possivel introduzir um novo texto
+        //instance.SetText(text);
+    }
 
 }
