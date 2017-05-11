@@ -1,0 +1,6 @@
+Onde é que está o resto da tripulação?
+Precione 'Z' ou 'C' para explorar o mapa
+Vá ate a nave Precione E para interagir
+A nave esta destruida
+É preciso encontrar recursos para a reparar
+Procure por recursos no mapa. Precione E para os recolher

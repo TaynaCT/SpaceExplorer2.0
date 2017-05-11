@@ -81,16 +81,16 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    void OnCollisionEnter(Collision c)
-    {
-        if (c.gameObject.CompareTag("Movel"))
-        {
-            animator.SetBool("push", true);
-            velocity = velocity / 10;
-           Debug.Log("IS HITTING");
-        }        
+    //void OnCollisionEnter(Collision c)
+    //{
+    //    if (c.gameObject.CompareTag("Movel"))
+    //    {
+    //        animator.SetBool("push", true);
+    //        velocity = velocity / 10;
+    //       Debug.Log("IS HITTING");
+    //    }        
         
-    }
+    //}
 
     private void OnCollisionExit(Collision collision)
     {
