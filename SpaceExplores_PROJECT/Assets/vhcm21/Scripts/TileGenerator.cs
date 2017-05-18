@@ -7,8 +7,6 @@ public class TileGenerator : MonoBehaviour {
     public GameObject tile;
 
     GameObject[,] terrain;
-    //CameraController cc;
-    //float tileSize;
     int xTerrain;
     int yTerrain;
     Vector3 tilePosition;
@@ -19,8 +17,6 @@ public class TileGenerator : MonoBehaviour {
         xTerrain = 5;
         yTerrain = 5;
         terrain = new GameObject[xTerrain, yTerrain];
-        //cc = new CameraController();
-        //tileSize = cc.GetTileSize();
 
         for (int y = 0; y < yTerrain; y++)
         {

@@ -7,94 +7,97 @@ public class CharacterController : MonoBehaviour {
     Animator animator;
     private Rigidbody rb;
     public float Speed, RunningSpeed;
-    //Transform toPush;
     Vector3 velocity;
+  //  CamController cam;
 
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+    //    cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CamController>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
-    {        
-        //andar
-        if (Input.GetAxis("Vertical") > 0)//andar para frente 
-        {
-            velocity = transform.forward * Speed;
-
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+    {
+    //    if (!cam.camMoving)
+      //  {
+            //andar
+            if (Input.GetAxis("Vertical") > 0)//andar para frente 
             {
-                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.4f 
-                    && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.6f)
-                {
-                    velocity.y = rb.velocity.y;
-                    rb.velocity = velocity;
-                }
-            }
-            else
-            {
-                animator.SetBool("isWalking", true);
+                velocity = transform.forward * Speed;
 
-                //correr
-                if (Input.GetButton("Running"))
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
                 {
-                    velocity = velocity * RunningSpeed;
-                    animator.SetBool("isRunning", true);
+                    if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.4f
+                        && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.6f)
+                    {
+                        rb.AddForce(new Vector3(0, 0.3f, 0), ForceMode.Impulse);
+                        velocity.y = rb.velocity.y;
+                        rb.velocity = velocity;
+                    }
                 }
                 else
                 {
-                    animator.SetBool("isRunning", false);
+                    animator.SetBool("isWalking", true);
+
+                    //correr
+                    if (Input.GetButton("Running"))
+                    {
+                        velocity = velocity * RunningSpeed;
+                        animator.SetBool("isRunning", true);
+                    }
+                    else
+                    {
+                        animator.SetBool("isRunning", false);
+                    }
+
+                    velocity.y = rb.velocity.y;
+                    rb.velocity = velocity;
                 }
-
-                velocity.y = rb.velocity.y;
-                rb.velocity = velocity;
+                velocity = transform.forward * Speed;
+                animator.SetBool("isWalking", true);
             }
-            velocity = transform.forward * Speed;
-            animator.SetBool("isWalking", true);
-        }
-        else
-        {
-            animator.SetBool("isWalking", false);
-        }
+            else
+            {
+                animator.SetBool("isWalking", false);
+            }
 
-        //saltar
-        if (Input.GetButtonDown("Jump"))
-        {
-            animator.SetBool("jump", true);
-        }
-        else
-        {
-            animator.SetBool("jump", false);
-        }
+            //saltar
+            if (Input.GetButtonDown("Jump"))
+            {
+                animator.SetBool("jump", true);
+            }
+            else
+            {
+                animator.SetBool("jump", false);
+            }
 
-        if (Input.GetAxis("Horizontal") > 0)//virar para a direita 
-        {
-            transform.transform.Rotate(new Vector3(0, 2f, 0));
+            if (Input.GetAxis("Horizontal") > 0)//virar para a direita 
+            {
+                transform.transform.Rotate(new Vector3(0, 2f, 0));
 
-        }
-        else if (Input.GetAxis("Horizontal") < 0)//virar para a esquerda
-        {
-            transform.transform.Rotate(new Vector3(0, -2f, 0));
-        }
-
-        if (transform.position == new Vector3())
+            }
+            else if (Input.GetAxis("Horizontal") < 0)//virar para a esquerda
+            {
+                transform.transform.Rotate(new Vector3(0, -2f, 0));
+            }
+    //    }
     }
 
-    /*void OnCollisionEnter(Collision c)
+    private void LateUpdate()
     {
-        if (c.gameObject.CompareTag("Movel"))
-        {
-            animator.SetBool("push", true);
-            velocity = velocity / 10;
-           Debug.Log("IS HITTING");
-        }        
-        
-    }*/
+        Vector3 charPosition = transform.position;
+        if (transform.position.x > 2 * CamController.tileRadius * 5)
+            charPosition.x = 2 * CamController.tileRadius * 5;
+        else if (transform.position.x < 0f)
+            charPosition.x = 0f;
 
-    private void OnCollisionExit(Collision collision)
-    {
-        animator.SetBool("push", false);
+        if (transform.position.z > 2 * CamController.tileRadius * 5)
+            charPosition.z = 2 * CamController.tileRadius * 5;
+        else if (transform.position.z < 0f)
+            charPosition.z = 0f;
+
+        transform.position = charPosition;
     }
 }

@@ -8,13 +8,11 @@ public class CamController : MonoBehaviour {
     public float keyboardSpeed;
     public float camSpeed;
     Vector3 cameraLookAt;
-    //Transform firstSoloTransform;
-    //Transform lastSoloTransform;
     TileGenerator tg;
     Vector3 position;
     Vector3 playerPosition;
     int x, y;
-    float tileRadius = 2.5f;
+    public static float tileRadius = 2.5f;
 
     bool camMoving = false;
     Vector3 camDestiny;
@@ -25,20 +23,25 @@ public class CamController : MonoBehaviour {
         y = 0;
         tg = GameObject.Find("World").GetComponent<TileGenerator>();
         Cursor.lockState = CursorLockMode.Confined;
-        //tileTransform = GameObject.Find("MainTile").transform;
-        //firstSoloTransform = tileTransform.Find("DesertSideTile");
-        //lastSoloTransform = tileTransform.Find("DesertSideTile (241)");
         cameraLookAt = tg.GetTerrain()[x, y].transform.position;
-        /*position = new Vector3(firstSoloTransform.position.x + 
-            firstSoloTransform.localScale.x / 2 + 1.5f, 2f, 
-            firstSoloTransform.position.z + firstSoloTransform.localScale.z / 2 + 1.5f); */
         position = new Vector3(3.5f, 1.5f, -1.5f);
         transform.position = position;
         transform.LookAt(cameraLookAt);
-	}
+
+        for (int x = 0; x < 5; x++)
+        {
+            for (int y = 0; y < 5; y++)
+            {
+                tg.GetTerrain()[x, y].SetActive(false);
+            }
+        }
+
+        tg.GetTerrain()[x, y].SetActive(true);
+    }
 	
 	// Update is called once per frame
 	void Update () {
+
         if (!camMoving)
         {
             playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -68,22 +71,58 @@ public class CamController : MonoBehaviour {
             if (playerPosition.x - cameraLookAt.x > tileRadius)
             {
                 x++;
+                if (x > 4)
+                {
+                    x = 4;
+                }
+                else
+                {
+                    tg.GetTerrain()[x, y].SetActive(true);
+                    tg.GetTerrain()[x - 1, y].SetActive(false);
+                }
                 changedTile = true;
             }
             else if (playerPosition.x - cameraLookAt.x < -tileRadius)
             {
                 x--;
+                if (x < 0)
+                {
+                    x = 0;
+                }
+                else
+                {
+                    tg.GetTerrain()[x, y].SetActive(true);
+                    tg.GetTerrain()[x + 1, y].SetActive(false);
+                }
                 changedTile = true;
             }
 
             if (playerPosition.z - cameraLookAt.z > tileRadius)
             {
                 y++;
+                if (y > 4)
+                {
+                    y = 4;
+                }
+                else
+                {
+                    tg.GetTerrain()[x, y].SetActive(true);
+                    tg.GetTerrain()[x, y - 1].SetActive(false);
+                }
                 changedTile = true;
             }
             else if (playerPosition.z - cameraLookAt.z < -tileRadius)
             {
                 y--;
+                if (y < 0)
+                {
+                    y = 0;
+                }
+                else
+                {
+                    tg.GetTerrain()[x, y].SetActive(true);
+                    tg.GetTerrain()[x, y + 1].SetActive(false);
+                }
                 changedTile = true;
             }
 
@@ -91,8 +130,6 @@ public class CamController : MonoBehaviour {
             {
                 camMoving = true;
                 camDestiny = position + 2 * tileRadius * new Vector3(x, 0, y) + delta;
-
-
             }
         }
         else
@@ -113,16 +150,5 @@ public class CamController : MonoBehaviour {
             }
             transform.LookAt(cameraLookAt);
         }
-
-
-      
     }
-
-    /*
-    public float GetTileSize()
-    {
-        float tileSize = lastSoloTransform.position.x - firstSoloTransform.position.x;
-        return tileSize;
-    }
-    */
 }
