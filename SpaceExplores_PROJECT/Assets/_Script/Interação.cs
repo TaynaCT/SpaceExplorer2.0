@@ -6,10 +6,14 @@ public class Interação : MonoBehaviour
 {
     //objectos que interagem
     public GameObject player;
-    public GameObject[] metais;
+    private List<GameObject> metais;
+    private GameObject recurso;
 
     // sons das interações
-    private AudioSource audio;
+    private AudioSource sound;
+
+    //Lista de sons para usar
+    public AudioClip[] sounds;
 
     //contador para recursos
     public float recursos { get; set; }
@@ -18,23 +22,32 @@ public class Interação : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        metais = GameObject.FindGameObjectsWithTag("metal");
-        audio = GetComponent<AudioSource>();
+        metais = new List<GameObject>(GameObject.FindGameObjectsWithTag("metal"));
+        sound = GetComponent<AudioSource>();
         recursos = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        sound.transform.position = player.transform.position;
+
+        Debug.DrawRay(player.transform.position, player.transform.forward * 10, Color.red);
         if (Input.GetKeyDown(KeyCode.E))
         {
-            for (int i = 0; i <= 5; i++)
+            for (int i = 0; i <= metais.Count; i++)
             {
-                if ((Vector3.Distance(metais[i].transform.position, player.transform.position) < 0.5) && ((Physics.Raycast(player.transform.position, player.transform.forward, .5f) == true)))
+
+                //RaycastHit rHit = new RaycastHit();
+                if (Vector3.Distance(metais[i].transform.position, player.transform.position) < 0.5 &&
+                    Physics.Raycast(player.transform.position, player.transform.forward, 1))
                 {
                     recursos++;
-                    audio.Play();
+                    int chooseSound = Random.Range(0, 2);
+                    sound.clip = sounds[chooseSound];
+                    sound.Play();
                     Destroy(metais[i]);
+                    metais.RemoveAt(i);
                 }
             }
         }

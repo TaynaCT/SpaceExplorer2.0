@@ -26,8 +26,8 @@ public class CameraController : MonoBehaviour
         lastSoloTransform = tileTransform.Find("DesertSideTile (241)");
         cameraLookAt = (firstSoloTransform.position + lastSoloTransform.position) / 2;
         position = new Vector3(firstSoloTransform.position.x +
-            firstSoloTransform.localScale.x / 2, 10f,
-            firstSoloTransform.position.z + firstSoloTransform.localScale.z / 2);
+            firstSoloTransform.localScale.x / 2 + 1, 1.5f,
+            firstSoloTransform.position.z + firstSoloTransform.localScale.z / 2 + 1);
         transform.position = position;
         transform.LookAt(cameraLookAt);
     }

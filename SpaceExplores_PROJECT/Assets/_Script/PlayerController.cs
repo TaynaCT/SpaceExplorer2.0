@@ -9,16 +9,23 @@ public class PlayerController : MonoBehaviour {
     public float Speed, RunningSpeed;
     Transform toPush;
     Vector3 velocity;
+    public AudioClip[] walkSounds;
+    private AudioSource sound;
+    private bool playSound;
 
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
-    {        
+    {
+        sound.transform.position = transform.position;
+        playSound = false; 
+          
         //andar
         if (Input.GetAxis("Vertical") > 0)//andar para frente 
         {
@@ -36,6 +43,11 @@ public class PlayerController : MonoBehaviour {
             else
             {
                 animator.SetBool("isWalking", true);
+
+                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime == 0.4f && !playSound)
+                {
+
+                }
 
                 //correr
                 if (Input.GetButton("Running"))
@@ -96,4 +108,11 @@ public class PlayerController : MonoBehaviour {
     {
         animator.SetBool("push", false);
     }
+
+    void PlayFoot(int i)
+    {
+        sound.clip = walkSounds[i];
+        sound.Play();
+    }
+
 }

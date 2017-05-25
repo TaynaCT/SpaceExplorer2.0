@@ -32,7 +32,7 @@ public class CharacterController : MonoBehaviour {
                     if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.4f
                         && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.6f)
                     {
-                        rb.AddForce(new Vector3(0, 0.3f, 0), ForceMode.Impulse);
+                        rb.AddForce(new Vector3(0, 0.21f, 0), ForceMode.Impulse);
                         velocity.y = rb.velocity.y;
                         rb.velocity = velocity;
                     }
