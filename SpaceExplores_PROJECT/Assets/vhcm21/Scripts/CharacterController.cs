@@ -20,69 +20,71 @@ public class CharacterController : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-    //    if (!cam.camMoving)
-      //  {
-            //andar
-            if (Input.GetAxis("Vertical") > 0)//andar para frente 
+        //    if (!cam.camMoving)
+        //  {
+        //andar
+        if (Input.GetAxis("Vertical") > 0)//andar para frente 
+        {
+            //velocity = transform.forward * Speed;
+
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
             {
+                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.4f
+                    && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.6f)
+                {
+                    rb.AddForce(new Vector3(0, 0.21f, 0) + transform.forward * 0.03f, ForceMode.Impulse);
+                    /*velocity.y = rb.velocity.y;
+                    rb.velocity = velocity;*/
+                }
+
+            }
+            else
+            {
+                animator.SetBool("isWalking", true);
                 velocity = transform.forward * Speed;
 
-                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+                //correr
+                if (Input.GetButton("Running"))
                 {
-                    if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.4f
-                        && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.6f)
-                    {
-                        rb.AddForce(new Vector3(0, 0.21f, 0), ForceMode.Impulse);
-                        velocity.y = rb.velocity.y;
-                        rb.velocity = velocity;
-                    }
+                    velocity = velocity * RunningSpeed;
+                    animator.SetBool("isRunning", true);
                 }
                 else
                 {
-                    animator.SetBool("isWalking", true);
-
-                    //correr
-                    if (Input.GetButton("Running"))
-                    {
-                        velocity = velocity * RunningSpeed;
-                        animator.SetBool("isRunning", true);
-                    }
-                    else
-                    {
-                        animator.SetBool("isRunning", false);
-                    }
-
-                    velocity.y = rb.velocity.y;
-                    rb.velocity = velocity;
+                    animator.SetBool("isRunning", false);
                 }
-                velocity = transform.forward * Speed;
-                animator.SetBool("isWalking", true);
-            }
-            else
-            {
-                animator.SetBool("isWalking", false);
-            }
 
-            //saltar
-            if (Input.GetButtonDown("Jump"))
-            {
-                animator.SetBool("jump", true);
+                velocity.y = rb.velocity.y;
+                rb.velocity = velocity;
             }
-            else
-            {
-                animator.SetBool("jump", false);
-            }
+            velocity = transform.forward * Speed;
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
 
-            if (Input.GetAxis("Horizontal") > 0)//virar para a direita 
-            {
-                transform.transform.Rotate(new Vector3(0, 2f, 0));
+        //saltar
+        if (Input.GetButtonDown("Jump"))
+        {
+            animator.SetBool("jump", true);
+        }
+        else
+        {
+            animator.SetBool("jump", false);
+        }
 
-            }
-            else if (Input.GetAxis("Horizontal") < 0)//virar para a esquerda
-            {
-                transform.transform.Rotate(new Vector3(0, -2f, 0));
-            }
-    //    }
+        if (Input.GetAxis("Horizontal") > 0)//virar para a direita 
+        {
+            transform.transform.Rotate(new Vector3(0, 2f, 0));
+
+        }
+        else if (Input.GetAxis("Horizontal") < 0)//virar para a esquerda
+        {
+            transform.transform.Rotate(new Vector3(0, -2f, 0));
+        }
+        //    }
     }
 
     private void LateUpdate()

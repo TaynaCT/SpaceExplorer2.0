@@ -29,20 +29,22 @@ public class PlayerController : MonoBehaviour {
         //andar
         if (Input.GetAxis("Vertical") > 0)//andar para frente 
         {
-            velocity = transform.forward * Speed;
-            
+            //velocity = transform.forward * Speed;
+
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
             {
-                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.4f 
+                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.4f
                     && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.6f)
                 {
-                    velocity.y = rb.velocity.y;
-                    rb.velocity = velocity;
+                    rb.AddForce(new Vector3(0, 0.21f, 0) + transform.forward * 0.03f, ForceMode.Impulse);
+                    /*velocity.y = rb.velocity.y;
+                    rb.velocity = velocity;*/
                 }
             }
             else
             {
                 animator.SetBool("isWalking", true);
+                velocity = transform.forward * Speed;
 
                 if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime == 0.4f && !playSound)
                 {
