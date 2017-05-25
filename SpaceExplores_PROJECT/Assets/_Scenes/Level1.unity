@@ -12931,6 +12931,115 @@ Transform:
   m_PrefabParentObject: {fileID: 4820740011311754, guid: 0773311b4ff9c2445b3012749e5f31dc,
     type: 2}
   m_PrefabInternal: {fileID: 1506181370}
+--- !u!1 &1508477137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1508477139}
+  - component: {fileID: 1508477138}
+  m_Layer: 0
+  m_Name: musicSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1508477138
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1508477137}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &1508477139
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1508477137}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.20298332, y: 0.092865214, z: -0.92619705}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1512655894
 Prefab:
   m_ObjectHideFlags: 0
@@ -15388,6 +15497,32 @@ Transform:
   m_PrefabParentObject: {fileID: 4820740011311754, guid: 0773311b4ff9c2445b3012749e5f31dc,
     type: 2}
   m_PrefabInternal: {fileID: 1830934520}
+--- !u!1 &1834647284 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1747990302546634, guid: 4c6de22085a6cf842a6bbb2fffb189c8,
+    type: 2}
+  m_PrefabInternal: {fileID: 338066500}
+--- !u!114 &1834647285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1834647284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85bf622439f7de44f9e4e5305a70588c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic:
+  - {fileID: 8300000, guid: dfba40eb2b9d0fd45bf375b986fcdf1e, type: 3}
+  - {fileID: 8300000, guid: 8acaffdd93f7e59418bd75a935052b41, type: 3}
+  - {fileID: 8300000, guid: 9bad4708eee29f547ae923240c4779fc, type: 3}
+  - {fileID: 8300000, guid: ba79c5d2113da9d409ea9edf20cf1293, type: 3}
+  - {fileID: 8300000, guid: 0f92a2f13e0719d46b39e5d0321596a7, type: 3}
+  - {fileID: 8300000, guid: 1688cb445390dc749984095aea44f2bd, type: 3}
+  - {fileID: 8300000, guid: c2e1bcf676742974093ddc11a61140df, type: 3}
+  - {fileID: 8300000, guid: 73fa88703e92aa04b9d7b6df283420f7, type: 3}
+  - {fileID: 8300000, guid: 919208a8a4f7dc74ba736e9f79deb228, type: 3}
 --- !u!1001 &1840642256
 Prefab:
   m_ObjectHideFlags: 0
