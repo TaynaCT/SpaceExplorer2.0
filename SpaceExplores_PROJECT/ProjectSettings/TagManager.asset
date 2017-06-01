@@ -8,6 +8,8 @@ TagManager:
   - MainTile
   - Canvas
   - metal
+  - BackButton
+  - CreditsText
   layers:
   - Default
   - TransparentFX
