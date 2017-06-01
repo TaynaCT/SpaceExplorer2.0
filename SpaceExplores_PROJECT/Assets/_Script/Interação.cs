@@ -35,9 +35,8 @@ public class Interação : MonoBehaviour
         Debug.DrawRay(player.transform.position, player.transform.forward * 10, Color.red);
         if (Input.GetKeyDown(KeyCode.E))
         {
-            for (int i = 0; i <= metais.Count; i++)
+            for (int i = 0; i < metais.Count; i++)
             {
-
                 //RaycastHit rHit = new RaycastHit();
                 if (Vector3.Distance(metais[i].transform.position, player.transform.position) < 0.5 &&
                     Physics.Raycast(player.transform.position, player.transform.forward, 1))
