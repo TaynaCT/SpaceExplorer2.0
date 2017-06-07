@@ -10,6 +10,9 @@ TagManager:
   - metal
   - BackButton
   - CreditsText
+  - nave
+  - iron
+  - gold
   layers:
   - Default
   - TransparentFX

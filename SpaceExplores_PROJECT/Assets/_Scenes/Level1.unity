@@ -2515,7 +2515,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1305398428022098, guid: d786416b1ffbe064e9b3295b621da262, type: 2}
       propertyPath: m_TagString
-      value: metal
+      value: iron
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d786416b1ffbe064e9b3295b621da262, type: 2}
@@ -6365,7 +6365,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -7337,7 +7337,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1668804802219056, guid: 9334571f2fb057842978049dc4e59f34, type: 2}
       propertyPath: m_TagString
-      value: metal
+      value: gold
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9334571f2fb057842978049dc4e59f34, type: 2}
@@ -7626,7 +7626,7 @@ GameObject:
   - component: {fileID: 976064148}
   m_Layer: 0
   m_Name: ship
-  m_TagString: Untagged
+  m_TagString: nave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7838,7 +7838,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1668804802219056, guid: 9334571f2fb057842978049dc4e59f34, type: 2}
       propertyPath: m_TagString
-      value: metal
+      value: gold
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9334571f2fb057842978049dc4e59f34, type: 2}
@@ -9767,7 +9767,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
