@@ -14,8 +14,14 @@ public class CharacterHealth : MonoBehaviour {
     public Image HealthImgContent;
     public Image WaterImgContent;
 
-    float waterMax;
-    float waterLevel;
+    /// <summary>
+    /// Nivel maximo de agua
+    /// </summary>
+    public float waterMax;
+    /// <summary>
+    /// Nivel atual de agua
+    /// </summary>
+    float waterLevel { get; set; }
     float waitTime;
 
     // Use this for initialization
@@ -60,6 +66,11 @@ public class CharacterHealth : MonoBehaviour {
         }
     }
 
+
+    /// <summary>
+    /// Calculo de perda de agua.
+    /// A cada 30 segundos perde 10 unidades de agua
+    /// </summary>
     void WaterLoss()
     {        
         waitTime -= Time.deltaTime;
