@@ -39,7 +39,7 @@ public class Interação : MonoBehaviour
             {
                 //RaycastHit rHit = new RaycastHit();
                 if (Vector3.Distance(metais[i].transform.position, player.transform.position) < 0.5 &&
-                    Physics.Raycast(player.transform.position, player.transform.forward, 1))
+                    Physics.Raycast(player.transform.position, player.transform.forward, 3))
                 {
                     recursos++;
                     int chooseSound = Random.Range(0, 2);
