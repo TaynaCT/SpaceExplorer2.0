@@ -29,7 +29,7 @@ public class Interação : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {        
         sound.transform.position = player.transform.position;
 
         Debug.DrawRay(player.transform.position, player.transform.forward * 10, Color.red);
