@@ -17,7 +17,7 @@ public class CharacterHealth : MonoBehaviour {
     /// <summary>
     /// Nivel maximo de agua
     /// </summary>
-    public float waterMax;
+    float waterMax { get; set; }
     /// <summary>
     /// Nivel atual de agua
     /// </summary>
