@@ -6,9 +6,13 @@ public class Interação : MonoBehaviour
 {
     //objectos que interagem
     public GameObject player;
-    private List<GameObject> metais;
+    public GameObject ponte;
+    public GameObject nave;
+    private List<GameObject> iron;
+    private List<GameObject> gold;
+    private List<GameObject> wood;
     private GameObject recurso;
-
+    
     // sons das interações
     private AudioSource sound;
 
@@ -18,13 +22,26 @@ public class Interação : MonoBehaviour
     //contador para recursos
     public float recursos { get; set; }
 
+    //contador para madeira
+    public float woods { get; set; }
+
+    //activação da nave
+    public bool motor;
+
+    //construção da ponte
+    public bool construção;
+
     // Use this for initialization
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        metais = new List<GameObject>(GameObject.FindGameObjectsWithTag("metal"));
+        ponte = GameObject.FindWithTag("ponte");
+        nave = GameObject.FindWithTag("nave");
+        iron = new List<GameObject>(GameObject.FindGameObjectsWithTag("iron"));
+        gold = new List<GameObject>(GameObject.FindGameObjectsWithTag("gold"));
         sound = GetComponent<AudioSource>();
         recursos = 0;
+        woods = 0; 
     }
 
     // Update is called once per frame
@@ -32,23 +49,108 @@ public class Interação : MonoBehaviour
     {        
         sound.transform.position = player.transform.position;
 
-        Debug.DrawRay(player.transform.position, player.transform.forward * 10, Color.red);
+        //Debug.DrawRay(player.transform.position, player.transform.forward * 10, Color.red);
         if (Input.GetKeyDown(KeyCode.E))
         {
-            for (int i = 0; i < metais.Count; i++)
+            for (int i = 0; i < iron.Count; i++)
             {
                 //RaycastHit rHit = new RaycastHit();
-                if (Vector3.Distance(metais[i].transform.position, player.transform.position) < 0.5 &&
+                if (Vector3.Distance(iron[i].transform.position, player.transform.position) < 0.5 &&
                     Physics.Raycast(player.transform.position, player.transform.forward, 3))
                 {
                     recursos++;
                     int chooseSound = Random.Range(0, 2);
                     sound.clip = sounds[chooseSound];
                     sound.Play();
-                    Destroy(metais[i]);
-                    metais.RemoveAt(i);
+                    Destroy(iron[i]);
+                    iron.RemoveAt(i);
                 }
             }
+
+            for (int i = 0; i < gold.Count; i++)
+            {
+                //RaycastHit rHit = new RaycastHit();
+                if (Vector3.Distance(gold[i].transform.position, player.transform.position) < 0.5 &&
+                    Physics.Raycast(player.transform.position, player.transform.forward, 3))
+                {
+                    recursos = recursos+2;
+                    int chooseSound = Random.Range(0, 2);
+                    sound.clip = sounds[chooseSound];
+                    sound.Play();
+                    Destroy(gold[i]);
+                    gold.RemoveAt(i);
+                }
+            }
+
+            for (int i = 0; i < wood.Count; i++)
+            {
+                //RaycastHit rHit = new RaycastHit();
+                if (Vector3.Distance(wood[i].transform.position, player.transform.position) < 0.5 &&
+                    Physics.Raycast(player.transform.position, player.transform.forward, 3))
+                {
+                    woods ++;
+                    int chooseSound = Random.Range(0, 2);
+                    sound.clip = sounds[chooseSound];
+                    sound.Play();
+                    Destroy(wood[i]);
+                    wood.RemoveAt(i);
+                }
+            }
+
+            if (motor)
+            {
+                if (Vector3.Distance(nave.transform.position, player.transform.position) < 0.5 &&
+                    Physics.Raycast(player.transform.position, player.transform.forward, 3))
+                {
+                    if(recursos >= 3)
+                    {
+                        motor = false;
+                        recursos = recursos - 3;
+                         
+                        //meter o texto que vai aparecer quando a nave ligar
+
+
+                        int chooseSound = Random.Range(0, 2);
+                        sound.clip = sounds[chooseSound];
+                        sound.Play();
+                    }
+                    else
+                    {
+                        //meter o texto que vai aparecer quando o jogador tentar e nao tiver recursos
+
+
+                    }
+                }
+            }
+
+            if (construção)
+            {
+                if (Vector3.Distance(ponte.transform.position, player.transform.position) < 0.5 &&
+                    Physics.Raycast(player.transform.position, player.transform.forward, 3))
+                {
+                    if (woods >= 3)
+                    {
+                        woods = woods - 3; 
+                        motor = false;
+
+                        //meter o texto que vai aparecer quando a ponte for construida
+
+
+                        int chooseSound = Random.Range(0, 2);
+                        sound.clip = sounds[chooseSound];
+                        sound.Play();
+                    }
+                    else
+                    {
+                        //meter o texto que vai aparecer quando o jogador tentar e nao tiver recursos
+
+
+                    }
+                }
+            }
+
+
+
         }
 
     }
