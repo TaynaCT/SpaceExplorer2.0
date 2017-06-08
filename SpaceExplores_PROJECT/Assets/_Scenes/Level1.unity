@@ -6041,7 +6041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1129684026}
   ponte: {fileID: 0}
-  nave: {fileID: 0}
+  nave: {fileID: 949601228}
   sounds:
   - {fileID: 8300000, guid: 8b8f600b9d5d59e4fb2128a9ec592845, type: 3}
   - {fileID: 8300000, guid: 0787afbd7f182094bb3dbd33eee22478, type: 3}
@@ -7234,6 +7234,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c8b6a28265cff5e4cb4355af1a24cfba, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &949601228 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 178266, guid: c8b6a28265cff5e4cb4355af1a24cfba, type: 2}
+  m_PrefabInternal: {fileID: 949601227}
 --- !u!1001 &954012999
 Prefab:
   m_ObjectHideFlags: 0

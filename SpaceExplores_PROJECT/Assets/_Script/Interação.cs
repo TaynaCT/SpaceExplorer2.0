@@ -43,14 +43,12 @@ public class Interação : MonoBehaviour
         iron = new List<GameObject>(GameObject.FindGameObjectsWithTag("iron"));
         gold = new List<GameObject>(GameObject.FindGameObjectsWithTag("gold"));
         sound = GetComponent<AudioSource>();
-<<<<<<< HEAD
         recursos = 00;
         woods = 00; 
-=======
+
         recursos = 0;
         woods = 0; 
        
->>>>>>> a9a57b0b3b0b470a46edc96b026c24139ebace6d
     }
 
     // Update is called once per frame
