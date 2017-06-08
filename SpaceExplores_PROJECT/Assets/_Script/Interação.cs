@@ -8,11 +8,14 @@ public class Interação : MonoBehaviour
     public GameObject player;
     public GameObject ponte;
     public GameObject nave;
+    private GameObject recurso;
     private List<GameObject> iron;
     private List<GameObject> gold;
     private List<GameObject> wood;
-    private GameObject recurso;
-    
+    private List<GameObject> water;
+
+
+
     // sons das interações
     private AudioSource sound;
 
@@ -40,8 +43,14 @@ public class Interação : MonoBehaviour
         iron = new List<GameObject>(GameObject.FindGameObjectsWithTag("iron"));
         gold = new List<GameObject>(GameObject.FindGameObjectsWithTag("gold"));
         sound = GetComponent<AudioSource>();
+<<<<<<< HEAD
         recursos = 00;
         woods = 00; 
+=======
+        recursos = 0;
+        woods = 0; 
+       
+>>>>>>> a9a57b0b3b0b470a46edc96b026c24139ebace6d
     }
 
     // Update is called once per frame
@@ -149,6 +158,21 @@ public class Interação : MonoBehaviour
                 }
             }
 
+
+            for (int i = 0; i < water.Count; i++)
+            {
+                //RaycastHit rHit = new RaycastHit();
+                if (Vector3.Distance(water[i].transform.position, player.transform.position) < 0.5 &&
+                    Physics.Raycast(player.transform.position, player.transform.forward, 3))
+                {
+                    this.gameObject.GetComponent<CharacterHealth>().waterLevel = this.gameObject.GetComponent<CharacterHealth>().waterMax;
+                    int chooseSound = Random.Range(0, 2);
+                    sound.clip = sounds[chooseSound];
+                    sound.Play();
+                    Destroy(water[i]);
+                    water.RemoveAt(i);
+                }
+            }
 
 
         }

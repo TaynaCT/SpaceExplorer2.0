@@ -17,11 +17,11 @@ public class CharacterHealth : MonoBehaviour {
     /// <summary>
     /// Nivel maximo de agua
     /// </summary>
-    float waterMax { get; set; }
+    public float waterMax { get; set; }
     /// <summary>
     /// Nivel atual de agua
     /// </summary>
-    float waterLevel { get; set; }
+    public float waterLevel { get; set; }
     float waitTime;
 
     // Use this for initialization
@@ -38,7 +38,7 @@ public class CharacterHealth : MonoBehaviour {
         //waterBar.value = CalculateWaterLoss();
         WaterImgContent.fillAmount = CalculateWaterLoss();
         waitTime = 30;
-	}
+	    }
 	
 	// Update is called once per frame
 	void FixedUpdate() {
