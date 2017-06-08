@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222982818682804550}
   - component: {fileID: 114904178518319212}
   m_Layer: 5
-  m_Name: GoldAmount
+  m_Name: MetalAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 222711553443789396}
   - component: {fileID: 114554458774252896}
   m_Layer: 5
-  m_Name: GoldTITLE
+  m_Name: MetalTITLE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 222022980089894756}
   - component: {fileID: 114708238519941424}
   m_Layer: 5
-  m_Name: GoldStats
+  m_Name: MetalStats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,9 +151,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Gold
-
-'
+  m_Text: Metal
 --- !u!114 &114708238519941424
 MonoBehaviour:
   m_ObjectHideFlags: 1

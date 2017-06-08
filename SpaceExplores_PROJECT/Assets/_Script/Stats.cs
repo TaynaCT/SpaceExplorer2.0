@@ -7,22 +7,22 @@ using UnityEngine.UI;
 
 public class Stats : MonoBehaviour {
        
-    public Text goldAmount;
-    public Text ironAmount;
+    public Text metalAmount;
     public Text woodAmount;
 
 
     void Start()
     {     
-        goldAmount.text = "00";
-        ironAmount.text = "00";
-        ironAmount.text = "00";
+        metalAmount.text = "00";       
+        woodAmount.text = "00";
     }
 
     void Update()
     {
-       // statsText.text = "Recurso: " + this.gameObject.GetComponent<Interação>().recursos;
-               
+        // statsText.text = "Recurso: " + this.gameObject.GetComponent<Interação>().recursos;
+
+        metalAmount.text = this.gameObject.GetComponent<Interação>().recursos.ToString();
+        woodAmount.text = this.gameObject.GetComponent<Interação>().woods.ToString();
     }
 
 

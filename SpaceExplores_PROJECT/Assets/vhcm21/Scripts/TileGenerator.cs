@@ -17,7 +17,7 @@ public class TileGenerator : MonoBehaviour {
         xTerrain = 5;
         yTerrain = 5;
         terrain = new GameObject[xTerrain, yTerrain];
-
+       
         for (int y = 0; y < yTerrain; y++)
         {
             tilePosition.x = 2.5f;
