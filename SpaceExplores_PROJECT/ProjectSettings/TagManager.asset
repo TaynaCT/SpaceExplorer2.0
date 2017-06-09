@@ -15,6 +15,10 @@ TagManager:
   - gold
   - ponte
   - water
+  - wood
+  - ponte1
+  - ponte2
+  - ponte3
   layers:
   - Default
   - TransparentFX
