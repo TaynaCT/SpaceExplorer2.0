@@ -7,10 +7,10 @@ public class Interação : MonoBehaviour
     //objectos que interagem
     public GameObject player;
 
-    public GameObject ponte;
-    public GameObject pontefim;
-    public GameObject pontemedio;
-    public GameObject nave;
+    private GameObject ponte;
+    private GameObject pontefim;
+    private GameObject pontemedio;
+    private GameObject nave;
     
     private List<GameObject> iron;
     private List<GameObject> gold;
