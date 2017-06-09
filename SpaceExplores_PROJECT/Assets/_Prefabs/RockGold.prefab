@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4803032557990442}
   - component: {fileID: 33061366211565846}
   - component: {fileID: 23281145199018600}
+  - component: {fileID: 65479647449110476}
   m_Layer: 0
   m_Name: RockGold
   m_TagString: Untagged
@@ -34,8 +35,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1668804802219056}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.54, y: 0.132, z: -1.037}
+  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.024, y: 1.3628778, z: -0.27747095}
   m_LocalScale: {x: 0.13314855, y: 0.13314854, z: 0.13314854}
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,3 +81,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1668804802219056}
   m_Mesh: {fileID: 4300000, guid: 7f8c0defd59973b41b43e61468ae5158, type: 3}
+--- !u!65 &65479647449110476
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1668804802219056}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2197703, y: 1.92, z: 1.3248576}
+  m_Center: {x: -0.00000667572, y: -0.0000014305115, z: 0}

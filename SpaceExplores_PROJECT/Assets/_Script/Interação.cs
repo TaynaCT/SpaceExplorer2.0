@@ -6,14 +6,9 @@ public class Interação : MonoBehaviour
 {
     //objectos que interagem
     public GameObject player;
-
     public GameObject ponte;
-    public GameObject pontefim;
-    public GameObject pontemedio;
     public GameObject nave;
-
-
-
+    private GameObject recurso;
     private List<GameObject> iron;
     private List<GameObject> gold;
     private List<GameObject> wood;
@@ -43,41 +38,25 @@ public class Interação : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-       
-        //ponte = GameObject.FindWithTag("ponte");
-        nave = GameObject.FindWithTag("nave");
-
         ponte = GameObject.FindWithTag("ponte");
-        pontemedio = GameObject.FindWithTag("ponte1");
-        pontefim = GameObject.FindWithTag("ponte2");
-
-        pontemedio.SetActive(false);
-        pontefim.SetActive(false);
-
-
-        wood = new List<GameObject>(GameObject.FindGameObjectsWithTag("wood"));
+        nave = GameObject.FindWithTag("nave");
         iron = new List<GameObject>(GameObject.FindGameObjectsWithTag("iron"));
         gold = new List<GameObject>(GameObject.FindGameObjectsWithTag("gold"));
-        water = new List<GameObject>(GameObject.FindGameObjectsWithTag("water"));
         sound = GetComponent<AudioSource>();
-        motor = true;
-        construção = true;
-
-
         recursos = 00;
         woods = 00; 
 
-       
+        recursos = 0;
+        woods = 0; 
        
     }
 
     // Update is called once per frame
     void Update()
     {        
-
         sound.transform.position = player.transform.position;
 
-        Debug.DrawRay(player.transform.position, player.transform.forward * 10, Color.red);
+        //Debug.DrawRay(player.transform.position, player.transform.forward * 10, Color.red);
         if (Input.GetKeyDown(KeyCode.E))
         {
             for (int i = 0; i < iron.Count; i++)
@@ -114,7 +93,7 @@ public class Interação : MonoBehaviour
             {
                 //RaycastHit rHit = new RaycastHit();
                 if (Vector3.Distance(wood[i].transform.position, player.transform.position) < 0.5 &&
-                    Physics.Raycast(player.transform.position, player.transform.forward, 1))
+                    Physics.Raycast(player.transform.position, player.transform.forward, 3))
                 {
                     woods ++;
                     int chooseSound = Random.Range(0, 2);
@@ -128,14 +107,14 @@ public class Interação : MonoBehaviour
             if (motor)
             {
                 if (Vector3.Distance(nave.transform.position, player.transform.position) < 0.5 &&
-                   Physics.Raycast(player.transform.position, player.transform.forward, 3))
+                    Physics.Raycast(player.transform.position, player.transform.forward, 3))
                 {
                     if(recursos >= 3)
                     {
                         motor = false;
-                       recursos = recursos - 3;
-                          
-                       //meter o texto que vai aparecer quando a nave ligar
+                        recursos = recursos - 3;
+                         
+                        //meter o texto que vai aparecer quando a nave ligar
 
 
                         int chooseSound = Random.Range(0, 2);
@@ -153,20 +132,16 @@ public class Interação : MonoBehaviour
 
             if (construção)
             {
-                if (Vector3.Distance(ponte.transform.position, player.transform.position) < 1
-                &&
-                   Physics.Raycast(player.transform.position, player.transform.forward, 3))
+                if (Vector3.Distance(ponte.transform.position, player.transform.position) < 0.5 &&
+                    Physics.Raycast(player.transform.position, player.transform.forward, 3))
                 {
                     if (woods >= 3)
                     {
-                       
-                        pontefim.SetActive(true);
-                        pontemedio.SetActive(true);
+                        woods = woods - 3; 
+                        motor = false;
 
-                        //ponte2.SetActive(true);
                         //meter o texto que vai aparecer quando a ponte for construida
-                        woods = woods - 3;
-                        construção = false;
+
 
                         int chooseSound = Random.Range(0, 2);
                         sound.clip = sounds[chooseSound];
@@ -185,10 +160,10 @@ public class Interação : MonoBehaviour
             for (int i = 0; i < water.Count; i++)
             {
                 //RaycastHit rHit = new RaycastHit();
-                if (Vector3.Distance(water[i].transform.position, player.transform.position) < 1 
-                    && Physics.Raycast(player.transform.position, player.transform.forward, 3))     
+                if (Vector3.Distance(water[i].transform.position, player.transform.position) < 0.5 &&
+                    Physics.Raycast(player.transform.position, player.transform.forward, 3))
                 {
-                    gameObject.GetComponent<CharacterHealth>().waterLevel = gameObject.GetComponent<CharacterHealth>().waterMax;
+                    this.gameObject.GetComponent<CharacterHealth>().waterLevel = this.gameObject.GetComponent<CharacterHealth>().waterMax;
                     int chooseSound = Random.Range(0, 2);
                     sound.clip = sounds[chooseSound];
                     sound.Play();
