@@ -1,22 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Interação : MonoBehaviour
 {
     //objectos que interagem
     public GameObject player;
-
+        
     private GameObject ponte;
     private GameObject pontefim;
     private GameObject pontemedio;
     private GameObject nave;
-    
+
     private List<GameObject> iron;
     private List<GameObject> gold;
     private List<GameObject> wood;
     private List<GameObject> water;
-    
+
     // sons das interações
     private AudioSource sound;
 
@@ -30,14 +31,14 @@ public class Interação : MonoBehaviour
     public float woods { get; set; }
 
     //activação da nave
-    public bool motor;
+    private bool motor;
 
     //construção da ponte
-    public bool construção;
+    private bool construção;
 
     // Use this for initialization
     void Start()
-    {
+    {        
         player = GameObject.FindWithTag("Player");
 
         //ponte = GameObject.FindWithTag("ponte");
@@ -47,19 +48,23 @@ public class Interação : MonoBehaviour
         pontemedio = GameObject.FindWithTag("ponte1");
         pontefim = GameObject.FindWithTag("ponte2");
 
-        pontemedio.SetActive(false);
-        pontefim.SetActive(false);
-        
+        if (SceneManager.GetActiveScene().name == "Level2")
+        {
+            pontemedio.SetActive(false);
+            pontefim.SetActive(false);
+        }
+
         wood = new List<GameObject>(GameObject.FindGameObjectsWithTag("wood"));
         iron = new List<GameObject>(GameObject.FindGameObjectsWithTag("iron"));
         gold = new List<GameObject>(GameObject.FindGameObjectsWithTag("gold"));
         water = new List<GameObject>(GameObject.FindGameObjectsWithTag("water"));
+
         sound = GetComponent<AudioSource>();
         motor = true;
         construção = true;
-        
+
         recursos = 00;
-        woods = 00;        
+        woods = 00;
     }
 
     // Update is called once per frame
@@ -67,7 +72,7 @@ public class Interação : MonoBehaviour
     {
         sound.transform.position = player.transform.position;
 
-        Debug.DrawRay(player.transform.position, player.transform.forward * 10, Color.red);
+        //Debug.DrawRay(player.transform.position, player.transform.forward * 10, Color.red);
         if (Input.GetKeyDown(KeyCode.E))
         {
             for (int i = 0; i < iron.Count; i++)
@@ -126,11 +131,12 @@ public class Interação : MonoBehaviour
                         recursos = recursos - 3;
 
                         //meter o texto que vai aparecer quando a nave ligar
-
+                        Debug.Log("AI ESTA A NAVE !!!!");
 
                         int chooseSound = Random.Range(0, 2);
                         sound.clip = sounds[chooseSound];
                         sound.Play();
+                        SceneManager.LoadScene("Level2");
                     }
                     else
                     {
@@ -151,7 +157,7 @@ public class Interação : MonoBehaviour
                     {
                         pontefim.SetActive(true);
                         pontemedio.SetActive(true);
-                                                
+
                         //meter o texto que vai aparecer quando a ponte for construida
                         woods = woods - 3;
                         construção = false;
@@ -159,6 +165,8 @@ public class Interação : MonoBehaviour
                         int chooseSound = Random.Range(0, 2);
                         sound.clip = sounds[chooseSound];
                         sound.Play();
+
+                        SceneManager.LoadScene("Level3");
                     }
                     else
                     {

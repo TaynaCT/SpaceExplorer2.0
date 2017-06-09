@@ -21,13 +21,12 @@ public class CameraController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Confined;
         angle = 0f;
-        tileTransform = GameObject.Find("MainTile").transform;
-        firstSoloTransform = tileTransform.Find("DesertSideTile");
-        lastSoloTransform = tileTransform.Find("DesertSideTile (241)");
-        cameraLookAt = (firstSoloTransform.position + lastSoloTransform.position) / 2;
-        position = new Vector3(firstSoloTransform.position.x +
-            firstSoloTransform.localScale.x / 2 + 1, 1.5f,
-            firstSoloTransform.position.z + firstSoloTransform.localScale.z / 2 + 1);
+        //tileTransform = GameObject.Find("MainTile").transform;
+        //firstSoloTransform = tileTransform.Find("DesertSideTile");
+        //lastSoloTransform = tileTransform.Find("DesertSideTile (241)");
+        cameraLookAt = new Vector3(0,0,0);
+        position = new Vector3(2f, 1.5f,
+            2);
         transform.position = position;
         transform.LookAt(cameraLookAt);
     }
@@ -55,9 +54,9 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public float GetTileSize()
-    {
-        float tileSize = lastSoloTransform.position.x - firstSoloTransform.position.x;
-        return tileSize;
-    }
+    //public float GetTileSize()
+    //{
+    //    float tileSize = lastSoloTransform.position.x - firstSoloTransform.position.x;
+    //    return tileSize;
+    //}
 }

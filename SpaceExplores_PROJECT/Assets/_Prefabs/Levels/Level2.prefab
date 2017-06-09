@@ -42,11 +42,11 @@ GameObject:
   - component: {fileID: 64787055788763208}
   m_Layer: 0
   m_Name: Bridge_03
-  m_TagString: Untagged
+  m_TagString: ponte2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1006992916183128
 GameObject:
   m_ObjectHideFlags: 1
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 23983624693567572}
   m_Layer: 0
   m_Name: RockIron
-  m_TagString: Untagged
+  m_TagString: iron
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 64794430934560034}
   m_Layer: 0
   m_Name: Bridge_01
-  m_TagString: Untagged
+  m_TagString: ponte
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 136917571238041974}
   m_Layer: 0
   m_Name: Tree_Palm_01
-  m_TagString: Untagged
+  m_TagString: nave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 64515756251342864}
   m_Layer: 0
   m_Name: Tree_Pine_01 (1)
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 64255406497797202}
   m_Layer: 0
   m_Name: Tree_Pine_01
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,11 +489,11 @@ GameObject:
   - component: {fileID: 64937526636625956}
   m_Layer: 0
   m_Name: Bridge_02
-  m_TagString: Untagged
+  m_TagString: ponte1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1254022449381908
 GameObject:
   m_ObjectHideFlags: 1
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 64440558436897200}
   m_Layer: 0
   m_Name: Tree_Pine_03 (2)
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 64830926098240526}
   m_Layer: 0
   m_Name: Tree_Pine_03 (4)
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -817,7 +817,7 @@ GameObject:
   - component: {fileID: 64757378853500588}
   m_Layer: 0
   m_Name: Tree_Pine_01 (3)
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 4731408153494360}
   - component: {fileID: 114842391519718068}
   m_Layer: 0
-  m_Name: b08SlopeLowCorner_YuME
+  m_Name: DesertSideTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -937,7 +937,7 @@ GameObject:
   - component: {fileID: 64450957149006396}
   m_Layer: 0
   m_Name: Tree_Pine_01 (6)
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1095,7 +1095,7 @@ GameObject:
   - component: {fileID: 64607513469980980}
   m_Layer: 0
   m_Name: Tree_Pine_01 (2)
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1247,7 +1247,7 @@ GameObject:
   - component: {fileID: 64694664484472218}
   m_Layer: 0
   m_Name: Tree_Pine_03
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1264,7 +1264,7 @@ GameObject:
   - component: {fileID: 23488399863058966}
   m_Layer: 0
   m_Name: RockGold
-  m_TagString: Untagged
+  m_TagString: gold
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1466,7 +1466,7 @@ GameObject:
   - component: {fileID: 64022065086890786}
   m_Layer: 0
   m_Name: Tree_Pine_01
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1480,7 +1480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4626478404289614}
   m_Layer: 0
-  m_Name: layer1
+  m_Name: MainTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1641,7 +1641,7 @@ GameObject:
   - component: {fileID: 64071298316820938}
   m_Layer: 0
   m_Name: Tree_Pine_01 (4)
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1677,7 +1677,7 @@ GameObject:
   - component: {fileID: 64980158771093808}
   m_Layer: 0
   m_Name: Tree_Pine_03 (6)
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1731,7 +1731,7 @@ GameObject:
   - component: {fileID: 64139406153806716}
   m_Layer: 0
   m_Name: Tree_Pine_01 (8)
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1869,7 +1869,7 @@ GameObject:
   - component: {fileID: 64499490982756482}
   m_Layer: 0
   m_Name: Tree_Pine_01 (5)
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1985,7 +1985,7 @@ GameObject:
   - component: {fileID: 4586268261410264}
   - component: {fileID: 114940518240739354}
   m_Layer: 0
-  m_Name: a01HalfBlock_YuME
+  m_Name: DesertSideTile (241)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2004,7 +2004,7 @@ GameObject:
   - component: {fileID: 64396789807299944}
   m_Layer: 0
   m_Name: Tree_Pine_03 (3)
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2039,7 +2039,7 @@ GameObject:
   - component: {fileID: 64165837580367626}
   m_Layer: 0
   m_Name: Tree_Pine_03
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2091,7 +2091,7 @@ GameObject:
   - component: {fileID: 64924204188481296}
   m_Layer: 0
   m_Name: Tree_Pine_01 (9)
-  m_TagString: Untagged
+  m_TagString: wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2511,13 +2511,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1062873305274388}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.3137, y: 0.27725, z: -2.6934}
+  m_LocalRotation: {x: 0.0005935282, y: -0.000000089406974, z: 0.0017089249, w: 0.9999984}
+  m_LocalPosition: {x: -7.31, y: 0.39, z: -2.7}
   m_LocalScale: {x: 0.12801698, y: 0.12801698, z: 0.12801698}
   m_Children: []
   m_Father: {fileID: 4700782911981130}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.068, y: 0, z: 0.19600001}
 --- !u!4 &4315107084217262
 Transform:
   m_ObjectHideFlags: 1
