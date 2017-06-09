@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4927900080429564}
   - component: {fileID: 33750778726062334}
   - component: {fileID: 23414184015753436}
-  - component: {fileID: 65617880739152840}
   m_Layer: 0
   m_Name: RockIron
   m_TagString: Untagged
@@ -36,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1305398428022098}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.282, y: 0.066, z: -1.0464725}
+  m_LocalPosition: {x: -0.97872245, y: 0.025, z: -2.5956368}
   m_LocalScale: {x: 0.115548655, y: 0.11554862, z: 0.11554862}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,15 +80,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1305398428022098}
   m_Mesh: {fileID: 4300000, guid: 308d0e2fba217f1449cf6432d89e4a7c, type: 3}
---- !u!65 &65617880739152840
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1305398428022098}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5388917, y: 1.82, z: 1.125972}
-  m_Center: {x: 0, y: 0.13, z: 0}
